@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About us — TOPSCAN</title>
+<meta content="Meet the TOPSCAN team: architects, BIM modellers and survey specialists, with full CVs." name="description"/>
+<link href="https://topscan.ge/en/about" rel="canonical"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important;}</style></noscript>
+
+<style>
+/* =====================================================================
+   TOPSCAN — About us (static draft)
+   Tokens, header, hero, drawer, form, footer: taken 1:1 from styles.css.
+   Page-specific blocks are marked "ABOUT PAGE" below.
+   ===================================================================== */
+
+/* ===== Design tokens & base rules ===== */
+:root{
+  --bg:            #14181e;
+  --page-bg:       #050505;   /* DCT wireframe background colour */
+  --bg-panel:      #13161d;
+  --bg-panel-2:    #0f1116;
+  --line:          #eef2f91a;
+  --line-solid:    #3f4249;
+  --text:          #eef2f9;
+  --text-dim:      #999ea6;
+  --accent:        #f9310f;
+  --pad:           clamp(20px, 5vw, 56px);
+  --maxw:          1280px;
+  --mono:          'Inter', Arial, sans-serif;
+  --display:       'Inter', Arial, sans-serif;
+  --body-font:     'Inter', Arial, sans-serif;
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+h1, h2, h3, h4{ overflow-wrap:break-word; }
+html{ scroll-behavior:smooth; overscroll-behavior-x:none; overflow-x:hidden; }
+body{
+  background:var(--page-bg);
+  color:var(--text-dim);
+  font-family:var(--body-font);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  overscroll-behavior-x:none;
+}
+img,video{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+::selection{ background:var(--accent); color:#fff; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+  outline:2px solid var(--accent); outline-offset:3px;
+}
+.wrap{ max-width:var(--maxw); margin:0 auto; padding-left:var(--pad); padding-right:var(--pad); }
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+.eyebrow{
+  display:flex; align-items:center; gap:9px;
+  font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--text-dim); margin-bottom:20px;
+}
+.eyebrow::before{
+  content:""; width:6px; height:6px; background:var(--accent); display:inline-block;
+  animation:blink 1.4s linear infinite;
+}
+h1,h2,h3{
+  font-family:var(--display); color:var(--text); font-weight:600;
+  text-transform:uppercase; letter-spacing:-.02em; line-height:.98; text-align:left;
+}
+p{ text-align:left; }
+section{ padding:64px 0; position:relative; }
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  background:transparent; color:var(--text);
+  font-family:var(--display); font-weight:600; text-transform:uppercase; letter-spacing:-.01em;
+  font-size:13px; padding:11px 20px; border:1px solid var(--line-solid);
+  cursor:pointer; white-space:nowrap;
+  transition:background .2s ease, color .2s ease, border-color .2s ease;
+}
+.btn:hover{ background:var(--accent); border-color:var(--accent); color:#fff; }
+
+/* ===== Grain over the whole page ===== */
+.g_grain_overlay{
+  z-index:999999999; opacity:.85; pointer-events:none;
+  mix-blend-mode:soft-light;
+  background-image:url(https://cdn.prod.website-files.com/680244911c3d7d28354cb55b/6847932d898d9e0724ac2cb2_download.png);
+  background-position:0 0; background-attachment:fixed; background-size:auto;
+  filter:brightness(1.3) contrast(1.02);
+  position:fixed; width:200%; height:200vh; inset:-50% 0% 0% -50%;
+  will-change:transform;
+  animation:grain-animation .5s steps(6) infinite;
+}
+
+/* ===== Header ===== */
+header{ position:fixed; top:0; left:0; right:0; z-index:100; background:transparent; backdrop-filter:blur(10px); border-bottom:none; }
+.header-inner{
+  max-width:var(--maxw); margin:0 auto; padding:0 var(--pad);
+  height:64px; display:flex; align-items:center; justify-content:space-between; gap:20px;
+}
+.logo{
+  font-family:var(--mono); font-weight:700; font-size:14px; letter-spacing:.04em; text-transform:uppercase;
+  color:var(--text); display:flex; align-items:center; gap:8px; white-space:nowrap;
+}
+.logo img{ height:40px; width:auto; display:block; }
+.header-right{ display:flex; align-items:center; gap:26px; }
+.lang-wrap{ display:flex; gap:16px; }
+.lang-wrap a{
+  font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--text-dim); transition:color .2s ease;
+}
+.lang-wrap a.active, .lang-wrap a:hover{ color:var(--text); }
+.main-nav{ display:flex; align-items:center; gap:34px; }
+.main-nav a{
+  font-family:var(--mono); font-size:12.5px; letter-spacing:.05em; text-transform:uppercase;
+  color:var(--text-dim); transition:color .2s ease; white-space:nowrap;
+}
+.main-nav a:hover, .main-nav a.active, .nav-drawer-links a.active{ color:var(--text); }
+
+.menu-toggle{
+  display:none; flex-direction:column; justify-content:center; align-items:center;
+  gap:5px; width:32px; height:32px; background:transparent; border:none; cursor:pointer; padding:0; z-index:210;
+}
+.menu-toggle span{ display:block; width:20px; height:1.5px; background:var(--text); transition:transform .3s ease, opacity .3s ease; }
+.menu-toggle.is-open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
+.menu-toggle.is-open span:nth-child(2){ opacity:0; }
+.menu-toggle.is-open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+
+/* ===== Mobile nav drawer ===== */
+.nav-overlay{
+  position:fixed; inset:0; z-index:190; background:rgba(15,17,22,.6);
+  opacity:0; visibility:hidden; transition:opacity .35s ease, visibility .35s ease;
+}
+.nav-overlay.is-open{ opacity:1; visibility:visible; }
+.nav-drawer{
+  position:fixed; top:0; right:0; bottom:0; left:0; z-index:200;
+  width:100vw; height:100vh; height:100dvh; background:var(--bg-panel-2);
+  transform:translateX(100%); transition:transform .4s cubic-bezier(.25,.46,.45,.94);
+  display:flex; flex-direction:column; overflow-y:auto;
+}
+.nav-drawer.is-open{ transform:translateX(0); }
+.nav-drawer-head{
+  display:flex; align-items:center; justify-content:space-between;
+  max-width:var(--maxw); width:100%; margin:0 auto; padding:0 var(--pad); height:64px; flex-shrink:0;
+  border-bottom:1px solid var(--line);
+}
+.nav-drawer-close{ background:transparent; border:none; color:var(--text); font-size:22px; line-height:1; cursor:pointer; padding:6px; font-family:var(--mono); }
+.nav-drawer-links{ display:flex; flex-direction:column; gap:4px; padding:24px var(--pad) 0; max-width:var(--maxw); margin:0 auto; width:100%; }
+.nav-drawer-links a{
+  font-family:var(--display); font-size:20px; font-weight:600; text-transform:uppercase; letter-spacing:-.01em;
+  color:var(--text); padding:14px 0; border-bottom:1px solid var(--line);
+  transition:color .2s ease, padding-left .2s ease;
+}
+.nav-drawer-links a:last-child{ border-bottom:none; }
+.nav-drawer-links a:hover{ color:var(--accent); padding-left:6px; }
+body.nav-locked{ position:fixed; left:0; right:0; overflow:hidden; }
+.nav-drawer-media{ position:relative; flex:1 1 auto; min-height:240px; margin-top:20px; overflow:hidden; background:var(--bg-panel-2); }
+.nav-drawer-media video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.nav-drawer-media-scrim{
+  position:absolute; inset:0; z-index:1;
+  background:linear-gradient(180deg, var(--bg-panel-2) 0%, rgba(15,17,22,.42) 16%, rgba(15,17,22,.32) 50%, rgba(15,17,22,.58) 80%, var(--bg-panel-2) 100%);
+}
+.nav-drawer-contacts{
+  position:absolute; inset:0; z-index:3; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:0 var(--pad);
+}
+.nav-drawer-contacts a{ font-family:var(--mono); font-size:13.5px; color:var(--accent); display:block; margin-bottom:8px; transition:color .2s ease; }
+.nav-drawer-contacts a:last-child{ margin-bottom:0; }
+.nav-drawer-contacts a:hover{ color:var(--text); }
+
+/* Edge burst (mobile menu) */
+[data-eb]{ display:inline-block; opacity:0; }
+.eb-word{ display:inline-block; white-space:nowrap; }
+.eb-play [data-eb]{ animation:ebIn .8s cubic-bezier(.22,1,.36,1) both; }
+
+/* Zipper slide (h2 / h3) */
+[data-zip-ready] span[data-zip]{ display:inline-block; opacity:0; }
+.zip-word{ display:inline-block; overflow-wrap:anywhere; max-width:100%; }
+.zip-play span[data-zip]{ animation:zipperIn .7s cubic-bezier(.22,1,.36,1) both; animation-delay:calc(var(--zi) * 22ms); }
+.zip-play span[data-zip]:nth-child(odd){ --zd:1; }
+.zip-play span[data-zip]:nth-child(even){ --zd:-1; }
+
+/* Legibility scrim over the wireframe (kept outside the pasted DCT block) */
+.dct-bg::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(180deg, rgba(5,5,5,.74) 0%, rgba(5,5,5,.58) 50%, rgba(5,5,5,.72) 100%);
+}
+
+/* ===== Stages: hero -> about (shared-element video transition) ===== */
+.page{ display:none; }
+.page.is-active{ display:block; }
+.page--hero{ touch-action:none; }
+
+/* the one <video> lives in a "slot" and moves between slots */
+.slot{ position:relative; }
+.shared{ position:absolute; inset:0; overflow:hidden; background:#000; z-index:0; }
+.shared video{ display:block; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+
+/* ===== Hero ===== */
+.hero{
+  position:relative; height:100svh; min-height:100svh; padding:0; border:none;
+  display:flex; flex-direction:column; justify-content:space-between; overflow:hidden;
+}
+.slot--hero{ position:absolute; inset:0; }
+.hero-scrim{
+  position:absolute; inset:0; z-index:3; pointer-events:none;
+  background:
+    radial-gradient(ellipse 55% 42% at 50% 50%, rgba(20,24,30,.4) 0%, rgba(20,24,30,0) 100%),
+    linear-gradient(180deg, rgba(20,24,30,.5) 0%, rgba(20,24,30,.12) 24%, rgba(20,24,30,.12) 70%, rgba(20,24,30,.55) 100%);
+}
+.tracking-area{ position:absolute; inset:0; z-index:3; pointer-events:none; }
+.tracking-area .vline{ position:absolute; top:0; bottom:0; width:1px; background:var(--line); }
+.corner{ position:absolute; width:18px; height:18px; border:1px solid rgba(238,242,249,.35); }
+.corner.tl{ top:24px; left:var(--pad); border-right:none; border-bottom:none; }
+.corner.tr{ top:24px; right:var(--pad); border-left:none; border-bottom:none; }
+.corner.bl{ bottom:24px; left:var(--pad); border-right:none; border-top:none; }
+.corner.br{ bottom:24px; right:var(--pad); border-left:none; border-top:none; }
+
+/* breadcrumb sits exactly where .page-header puts it on the about layout */
+.hero-top{
+  position:relative; z-index:4; width:100%; max-width:var(--maxw); margin:0 auto;
+  padding:88px var(--pad) 0;
+}
+.hero .breadcrumb{ margin:0; color:rgba(238,242,249,.68); }
+.hero .breadcrumb a{ color:rgba(238,242,249,.68); }
+.hero .breadcrumb a:hover{ color:#fff; }
+
+.hero-center{ position:absolute; inset:0; z-index:5; display:grid; place-items:center; pointer-events:none; }
+.hero-center img{
+  width:clamp(190px, 30vw, 400px); height:auto;
+  animation:logoIn 1.6s cubic-bezier(.22,1,.36,1) .25s both;
+}
+.hero-skip{
+  position:absolute; left:50%; bottom:clamp(26px, 5vw, 44px); transform:translateX(-50%); z-index:5;
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  background:none; border:none; cursor:pointer; padding:6px 10px;
+  font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  color:rgba(238,242,249,.68); transition:color .2s ease;
+}
+.hero-skip::after{ content:""; width:1px; height:32px; background:currentColor; opacity:.55; }
+.hero-skip:hover{ color:#fff; }
+
+/* ===== Breadcrumb / page header (identical to the offer page) ===== */
+.breadcrumb{
+  font-family:var(--mono); font-size:11.5px; letter-spacing:.04em; color:var(--text-dim);
+  margin-bottom:22px; text-transform:uppercase; overflow-wrap:anywhere;
+}
+.breadcrumb a{ color:var(--text-dim); transition:color .2s ease; }
+.breadcrumb a:hover{ color:var(--accent); }
+.breadcrumb .sep{ margin:0 8px; color:currentColor; }
+.page-header{ padding:88px 0 8px; }
+
+/* ===== Overview (identical to the offer page) ===== */
+.service-hero-visual{ border:none; background:#000; aspect-ratio:16/10; position:relative; overflow:hidden; }
+.service-hero-visual::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(180deg, rgba(19,22,29,.05) 0%, rgba(19,22,29,.55) 100%);
+  opacity:0; transition:opacity .8s ease;
+}
+.is-landed .service-hero-visual::after{ opacity:1; }
+.service-overview{ display:grid; grid-template-columns:1.05fr .95fr; gap:60px; align-items:center; }
+.service-overview > *{ min-width:0; }
+.service-overview h1{ font-size:clamp(30px,5vw,52px); margin-bottom:18px; }
+.service-overview .ov-text > p{
+  font-family:var(--mono); color:var(--text-dim); font-size:15px; max-width:52ch; margin-bottom:26px; text-transform:none;
+}
+.stat-strip{ display:flex; flex-wrap:wrap; gap:clamp(20px,4vw,52px); border-top:1px solid var(--line); padding-top:18px; }
+.stat-strip .stat b{ display:block; font-family:var(--display); font-size:22px; color:var(--text); font-weight:600; }
+.stat-strip .stat span{ font-family:var(--mono); font-size:10.5px; color:var(--text-dim); letter-spacing:.05em; text-transform:uppercase; }
+.stat-strip .is-empty b, .stat-strip .is-empty span{ color:var(--text-dim); }
+
+.section-head{ max-width:60ch; margin-bottom:48px; }
+.section-head h2{ font-size:clamp(28px,4vw,44px); margin-bottom:14px; }
+.section-head p{ font-family:var(--mono); color:var(--text-dim); font-size:15px; max-width:58ch; }
+
+/* ===== ABOUT PAGE — team ===== */
+.team{ padding-top:40px; padding-bottom:16px; }
+.team .section-head{ margin-bottom:28px; }
+.team-index{ display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-bottom:48px; font-family:var(--mono); }
+.team-index a{ font-size:13px; font-weight:600; letter-spacing:-.01em; color:var(--accent); transition:color .2s ease; }
+.team-index a:hover{ color:var(--text); }
+.team-index .sep{ color:var(--text-dim); font-size:12px; }
+
+.cv{
+  display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr); gap:clamp(36px,5vw,72px); align-items:start;
+  padding:72px 0; border-top:1px solid var(--line); scroll-margin-top:24px; hyphens:auto;
+}
+.cv:last-child{ padding-bottom:40px; }
+.cv-side, .cv-main{ min-width:0; display:flex; flex-direction:column; gap:44px; }
+.cv-side{ gap:36px; }
+
+/* Photo window — same mechanics as .equip-visual (data-parallax) */
+.cv-photo{ background:var(--bg-panel); aspect-ratio:4/5; position:relative; overflow:hidden; }
+.cv-photo img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.cv-photo::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(180deg, rgba(19,22,29,.05) 0%, rgba(19,22,29,.55) 100%);
+}
+.cv-photo .scan-line{
+  position:absolute; left:0; right:0; height:1px; z-index:2;
+  background:linear-gradient(90deg, transparent, var(--accent), transparent);
+  animation:scanmove 3.2s linear infinite; opacity:.8;
+}
+
+.cv-head h3{ font-size:clamp(28px,4vw,44px); margin-bottom:14px; }
+.cv-role{ font-family:var(--mono); font-size:15px; color:var(--text-dim); }
+
+.cv-h{
+  display:flex; align-items:center; gap:9px; margin-bottom:6px;
+  font-family:var(--mono); font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--text);
+}
+.cv-h::before{ content:""; width:7px; height:7px; background:var(--accent); flex-shrink:0; }
+
+.cv-row{ display:grid; grid-template-columns:150px minmax(0,1fr); gap:20px; padding:16px 0; border-top:1px solid var(--line); }
+.cv-block > .cv-h + .cv-row{ margin-top:12px; }
+.cv-period{ font-family:var(--mono); font-size:12px; color:var(--accent); white-space:nowrap; padding-top:2px; font-variant-numeric:tabular-nums; }
+.cv-row h5{
+  font-family:var(--display); color:var(--text); font-size:14.5px; font-weight:600;
+  text-transform:uppercase; letter-spacing:-.01em; line-height:1.25; overflow-wrap:break-word;
+}
+.cv-row p{ font-family:var(--mono); color:var(--text-dim); font-size:14px; margin-top:4px; }
+
+.cv-facts > div{ padding:12px 0; border-top:1px solid var(--line); }
+.cv-block > .cv-h + .cv-facts{ margin-top:12px; }
+.cv-facts dt{ font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--text-dim); margin-bottom:3px; }
+.cv-facts dd{ font-family:var(--mono); font-size:14px; color:var(--text); overflow-wrap:anywhere; }
+.cv-facts dd a{ color:var(--accent); transition:color .2s ease; }
+.cv-facts dd a:hover{ color:var(--text); }
+.cv-facts .is-empty{ color:var(--text-dim); }
+
+/* ===== Lead form ===== */
+.lead-section{ background:transparent; }
+.lead-layout{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
+.lead-layout > *{ min-width:0; }
+.lead-copy h2{ font-size:clamp(28px,4vw,40px); margin-bottom:18px; }
+.lead-copy > p{ font-family:var(--mono); color:var(--text-dim); margin-bottom:26px; max-width:44ch; font-size:15px; }
+.lead-list{ list-style:none; }
+.lead-list li{
+  font-family:var(--mono); font-size:14px; color:var(--text-dim); padding:10px 0;
+  border-top:1px solid var(--line); display:flex; gap:10px;
+}
+.lead-list li:last-child{ border-bottom:1px solid var(--line); }
+.lead-list li::before{ content:"›"; color:var(--accent); font-weight:700; }
+form{ display:flex; flex-direction:column; gap:16px; }
+.field label{
+  display:block; font-family:var(--mono); font-size:10.5px; color:var(--text-dim);
+  letter-spacing:.06em; text-transform:uppercase; margin-bottom:8px;
+}
+.field input, .field textarea{
+  width:100%; background:var(--bg); border:1px solid var(--line-solid); color:var(--text);
+  font-family:var(--mono); font-size:14px; padding:12px 13px; transition:border-color .2s ease;
+}
+.field input:focus, .field textarea:focus{ outline:2px solid var(--accent); outline-offset:1px; border-color:var(--accent); }
+.field-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.form-note{ font-family:var(--mono); font-size:12px; color:var(--text-dim); }
+.form-note a{ color:var(--accent); text-decoration:underline; }
+.submit-btn{ width:100%; padding:15px; margin-top:6px; font-size:14px; background:var(--accent); border-color:var(--accent); color:#fff; }
+.submit-btn:hover{ background:transparent; color:var(--text); border-color:var(--line-solid); }
+.submit-btn:disabled{ opacity:.55; cursor:not-allowed; }
+.form-status{ font-family:var(--mono); font-size:13px; display:none; }
+.form-status.ok{ color:#4ade80; display:block; }
+.form-status.err{ color:var(--accent); display:block; }
+
+/* ===== Footer ===== */
+footer{ padding:64px 0 28px; position:relative; overflow:hidden; }
+.footer-media{ position:absolute; inset:0; z-index:0; background:#000; }
+.footer-media video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.55; }
+.footer-seam{
+  position:absolute; top:0; left:0; right:0; height:180px; z-index:2; pointer-events:none;
+  backdrop-filter:blur(30px); -webkit-backdrop-filter:blur(30px);
+  background:linear-gradient(180deg, rgba(5,5,5,.65) 0%, rgba(5,5,5,.28) 55%, rgba(5,5,5,0) 100%);
+  -webkit-mask-image:linear-gradient(180deg, #000 0%, #000 45%, transparent 100%);
+  mask-image:linear-gradient(180deg, #000 0%, #000 45%, transparent 100%);
+}
+.footer-scrim{
+  position:absolute; inset:0; z-index:1;
+  background:linear-gradient(180deg, var(--page-bg) 0%, rgba(5,5,5,.55) 12%, rgba(5,5,5,.72) 55%, rgba(5,5,5,.88) 100%);
+}
+.footer-grain{
+  position:absolute; inset:0; z-index:2; pointer-events:none; opacity:.07; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size:180px 180px;
+}
+footer .wrap{ position:relative; z-index:3; }
+.footer-cols{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:36px; padding-bottom:36px; }
+.footer-col h5{ font-family:var(--mono); color:var(--text); font-size:11px; text-transform:uppercase; letter-spacing:.08em; margin-bottom:14px; }
+.footer-col p, .footer-col a{ font-family:var(--mono); font-size:13.5px; color:var(--text-dim); display:block; margin-bottom:8px; }
+.footer-contacts a{ color:var(--accent); }
+.footer-col a:hover{ color:var(--accent); }
+.footer-contacts a:hover{ color:var(--text); }
+.social-row{ display:flex; gap:16px; }
+.social-row a{ font-size:11px; letter-spacing:.05em; text-transform:uppercase; margin-bottom:0; }
+.footer-bottom{
+  display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px;
+  font-family:var(--mono); font-size:10.5px; color:var(--text-dim); letter-spacing:.03em;
+  border-top:1px solid var(--line); padding-top:20px;
+}
+.footer-bottom .dji-credit{ text-transform:uppercase; letter-spacing:.05em; }
+
+/* ===== Reveal ===== */
+.reveal{ opacity:0; transform:translateX(-14px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.is-visible{ opacity:1; transform:translateX(0); }
+
+/* ===== Keyframes ===== */
+@keyframes blink{ 0%,100%{opacity:1;} 50%{opacity:.15;} }
+@keyframes grain-animation{
+  0%,100%{ transform:translate(0,0); } 17%{ transform:translate(-5%,-10%); } 33%{ transform:translate(3%,-15%); }
+  50%{ transform:translate(12%,9%); } 67%{ transform:translate(9%,4%); } 83%{ transform:translate(-1%,7%); }
+}
+@keyframes ebIn{ from{ opacity:0; transform:translate(var(--ex), var(--ey)) scale(.7); filter:blur(4px); } to{ opacity:1; transform:none; filter:none; } }
+@keyframes zipperIn{ from{ opacity:0; transform:translateX(calc(var(--zd) * 46px)); } to{ opacity:1; transform:none; } }
+@keyframes scanmove{ 0%{ top:6%; } 100%{ top:94%; } }
+@keyframes logoIn{ from{ opacity:0; transform:scale(.94); filter:blur(8px); } to{ opacity:1; transform:none; filter:none; } }
+
+/* ===== Responsive ===== */
+@media (min-width:860px){
+  .service-overview h1{ font-size:clamp(27px, 3.13vw, 37px); margin-bottom:clamp(16px, 2.4vw, 24px); }
+  .service-overview .ov-text > p{ font-size:clamp(13.5px, 1.7vw, 15.5px); margin-bottom:clamp(18px, 3vw, 28px); }
+}
+@media (max-width:859px){
+  .stat-strip .stat b{ font-size:14.5px; }
+  .stat-strip .stat span{ font-size:7px; }
+}
+@media (max-width:900px){
+  .main-nav{ display:none; }
+  .menu-toggle{ display:flex; }
+  .lead-layout{ grid-template-columns:1fr; gap:36px; }
+  .service-overview{ grid-template-columns:1fr; gap:36px; }
+  .service-overview > .ov-text{ order:2; }
+  .service-overview > .ov-media{ order:1; }
+
+  /* CV: single column — photo, name, career, then personal data */
+  .cv{ display:flex; flex-direction:column; align-items:stretch; gap:36px; padding:56px 0; }
+  .cv-side, .cv-main{ display:contents; }
+  .cv-photo-wrap{ order:1; }
+  .cv-head{ order:2; }
+  .cv-main .cv-block{ order:3; }
+  .cv-side .cv-block{ order:4; }
+  .cv-photo{ aspect-ratio:4/4.6; }
+}
+@media (max-width:600px){
+  .nav-drawer-head, .header-inner{ height:56px; }
+  .lang-wrap{ gap:10px; }
+  .page-header{ padding-top:76px; }
+  .hero-top{ padding-top:76px; }
+  .cv-row{ grid-template-columns:1fr; gap:4px; }
+}
+@media (max-width:480px){
+  .field-row{ grid-template-columns:1fr; }
+}
+@media (prefers-reduced-motion:reduce){
+  .g_grain_overlay{ animation:none; }
+  html{ scroll-behavior:auto; }
+  .reveal{ opacity:1; transform:none; transition:none; }
+  .scan-line, .eyebrow::before{ animation:none; }
+  .footer-media video, .nav-drawer-media video{ display:none; }
+  [data-eb]{ opacity:1 !important; }
+  .zip-play span[data-zip]{ animation:none !important; opacity:1 !important; transform:none !important; }
+  .hero-center img{ animation:none; }
+  .service-hero-visual::after{ transition:none; }
+}
+</style>
+</head>
+<body>
+
+<div class="g_grain_overlay u-grain-animate" aria-hidden="true"></div>
+
+<!-- ============ HEADER (partial: _header.html) ============ -->
+<header>
+  <div class="header-inner">
+    <a aria-label="TOPSCAN" class="logo" href="/en"><img alt="TOPSCAN" src="https://raw.githubusercontent.com/Ramashery/Mavic/main/images/logo-topscan.png"/></a>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="/en">Home</a>
+      <a href="/en/services">Services</a>
+      <a href="/en/works">Works</a>
+      <a href="/en/blog">Blog</a>
+      <a class="active" href="/en/about" aria-current="page">About</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-wrap">
+        <a class="active" href="/en/about">EN</a>
+        <a href="/de/about">DE</a>
+        <a href="/ka/about">GE</a>
+        <a href="/ru/about">RU</a>
+      </div>
+      <button aria-controls="navDrawer" aria-expanded="false" aria-label="Open menu" class="menu-toggle" id="menuToggle" type="button">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MOBILE NAV DRAWER ============ -->
+<div class="nav-overlay" id="navOverlay"></div>
+<aside class="nav-drawer" id="navDrawer">
+  <div class="nav-drawer-head">
+    <a aria-label="TOPSCAN" class="logo" href="/en"><img alt="TOPSCAN" src="https://raw.githubusercontent.com/Ramashery/Mavic/main/images/logo-topscan.png"/></a>
+    <button aria-label="Close menu" class="nav-drawer-close" id="navDrawerClose" type="button">&times;</button>
+  </div>
+  <nav class="nav-drawer-links" aria-label="Mobile primary">
+    <a href="/en">Home</a>
+    <a href="/en/services">Services</a>
+    <a href="/en/works">Works</a>
+    <a href="/en/blog">Blog</a>
+    <a class="active" href="/en/about">About</a>
+  </nav>
+  <div class="nav-drawer-media">
+    <!-- TODO: replace with SITE.navDrawerVideo -->
+    <video autoplay loop muted playsinline preload="none" src="https://raw.githubusercontent.com/Ramashery/Mavic/refs/heads/main/video/A1.mp4"></video>
+    <div class="nav-drawer-media-scrim"></div>
+    <div class="nav-drawer-contacts">
+      <a href="tel:+995000000000">+995 000 000 000</a>
+      <a href="mailto:info@topscan.ge">info@topscan.ge</a>
+      <a href="#" rel="noopener" target="_blank">WhatsApp</a>
+      <a href="#" rel="noopener" target="_blank">Telegram</a>
+    </div>
+  </div>
+</aside>
+
+<!-- ============ PAGE BACKGROUND: DCT wireframe ============ -->
+<!-- ===== DCT WIREFRAME BG: START (вставлять в CMS целиком) ===== -->
+<div class="dct-bg" aria-hidden="true"><canvas></canvas></div>
+<style>
+.dct-bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:#050505;pointer-events:none}
+.dct-bg canvas{display:block;width:100%;height:100%}
+</style>
+<script>
+(function () {
+  var root = document.querySelector('.dct-bg');
+  if (!root) return;
+  var cv = root.querySelector('canvas');
+  var gl = cv.getContext('webgl', { antialias: true, alpha: true, premultipliedAlpha: true });
+  if (!gl) return;
+
+  var VS = [
+    'precision highp float;',
+    'attribute vec2 aG;',
+    'uniform vec2 uExt; uniform float uZc, uT, uAsp, uF, uCamY, uAmp, uCx, uTilt;',
+    'varying float vB;',
+    'vec3 mod289(vec3 x){return x-floor(x*(1./289.))*289.;}',
+    'vec4 mod289(vec4 x){return x-floor(x*(1./289.))*289.;}',
+    'vec4 permute(vec4 x){return mod289(((x*34.)+1.)*x);}',
+    'vec4 tis(vec4 r){return 1.79284291400159-0.85373472095314*r;}',
+    'float snoise(vec3 v){',
+    ' const vec2 C=vec2(1./6.,1./3.); const vec4 D=vec4(0.,.5,1.,2.);',
+    ' vec3 i=floor(v+dot(v,C.yyy)); vec3 x0=v-i+dot(i,C.xxx);',
+    ' vec3 g=step(x0.yzx,x0.xyz); vec3 l=1.-g;',
+    ' vec3 i1=min(g.xyz,l.zxy); vec3 i2=max(g.xyz,l.zxy);',
+    ' vec3 x1=x0-i1+C.xxx; vec3 x2=x0-i2+C.yyy; vec3 x3=x0-D.yyy;',
+    ' i=mod289(i);',
+    ' vec4 p=permute(permute(permute(i.z+vec4(0.,i1.z,i2.z,1.))+i.y+vec4(0.,i1.y,i2.y,1.))+i.x+vec4(0.,i1.x,i2.x,1.));',
+    ' vec3 ns=.142857142857*D.wyz-D.xzx;',
+    ' vec4 j=p-49.*floor(p*ns.z*ns.z);',
+    ' vec4 x_=floor(j*ns.z); vec4 y_=floor(j-7.*x_);',
+    ' vec4 x=x_*ns.x+ns.yyyy; vec4 y=y_*ns.x+ns.yyyy;',
+    ' vec4 h=1.-abs(x)-abs(y);',
+    ' vec4 b0=vec4(x.xy,y.xy); vec4 b1=vec4(x.zw,y.zw);',
+    ' vec4 s0=floor(b0)*2.+1.; vec4 s1=floor(b1)*2.+1.;',
+    ' vec4 sh=-step(h,vec4(0.));',
+    ' vec4 a0=b0.xzyw+s0.xzyw*sh.xxyy; vec4 a1=b1.xzyw+s1.xzyw*sh.zzww;',
+    ' vec3 p0=vec3(a0.xy,h.x); vec3 p1=vec3(a0.zw,h.y); vec3 p2=vec3(a1.xy,h.z); vec3 p3=vec3(a1.zw,h.w);',
+    ' vec4 nm=tis(vec4(dot(p0,p0),dot(p1,p1),dot(p2,p2),dot(p3,p3)));',
+    ' p0*=nm.x; p1*=nm.y; p2*=nm.z; p3*=nm.w;',
+    ' vec4 m=max(.6-vec4(dot(x0,x0),dot(x1,x1),dot(x2,x2),dot(x3,x3)),0.); m=m*m;',
+    ' return 42.*dot(m*m,vec4(dot(p0,x0),dot(p1,x1),dot(p2,x2),dot(p3,x3)));',
+    '}',
+    /* рельеф: доменное искажение + ridged fbm даёт острые складки, как на референсе */
+    'float H(vec2 p){',
+    ' vec2 w=vec2(snoise(vec3(p*.35,uT*.5)),snoise(vec3(p*.35+7.3,uT*.5)));',
+    ' p+=w*.9;',
+    ' float a=0.,amp=.55,f=1.;',
+    ' for(int i=0;i<3;i++){',
+    '  float n=1.-abs(snoise(vec3(p*f,uT+float(i)*3.1)));',
+    '  a+=n*n*amp; amp*=.3; f*=2.1;',
+    ' }',
+    ' return a;',
+    '}',
+    'void main(){',
+    ' vec2 q=vec2((aG.x-.5)*uExt.x,(aG.y-.5)*uExt.y+uZc);',
+    ' vec2 s=q*.55; float e=.03;',
+    ' float h0=H(s),hx=H(s+vec2(e,0.)),hz=H(s+vec2(0.,e));',
+    ' float g=length(vec2(hx-h0,hz-h0))/e;',
+    ' vec3 r=vec3(q.x-uCx,(h0-.46)*uAmp-uCamY,q.y);',
+    ' float ct=cos(uTilt),st=sin(uTilt);',
+    ' float vy=r.y*st-r.z*ct, vz=r.y*ct+r.z*st;',
+    ' gl_Position=vec4(r.x*uF/uAsp,vy*uF,0.,-vz);',
+    ' vB=clamp(.10+.62*smoothstep(0.,1.8,g)+.30*smoothstep(.35,.75,h0),0.,1.);',
+    '}'
+  ].join('\n');
+
+  var FS = [
+    'precision mediump float;',
+    'varying float vB;',
+    'void main(){ float a=vB*.9; gl_FragColor=vec4(vec3(.86,.87,.90)*a,a); }'
+  ].join('\n');
+
+  function sh(type, src) {
+    var o = gl.createShader(type);
+    gl.shaderSource(o, src);
+    gl.compileShader(o);
+    if (!gl.getShaderParameter(o, gl.COMPILE_STATUS)) console.error(gl.getShaderInfoLog(o));
+    return o;
+  }
+  var pr = gl.createProgram();
+  gl.attachShader(pr, sh(gl.VERTEX_SHADER, VS));
+  gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, FS));
+  gl.linkProgram(pr);
+  if (!gl.getProgramParameter(pr, gl.LINK_STATUS)) return;
+  gl.useProgram(pr);
+
+  var U = {};
+  ['uExt', 'uZc', 'uT', 'uAsp', 'uF', 'uCamY', 'uAmp', 'uCx', 'uTilt'].forEach(function (n) {
+    U[n] = gl.getUniformLocation(pr, n);
+  });
+  var aG = gl.getAttribLocation(pr, 'aG');
+  var vb = gl.createBuffer(), ib = gl.createBuffer(), count = 0;
+
+  var EZ = 8.5, ZC = -0.95, asp = 1;
+
+  function build() {
+    var ex = asp * 7.2;
+    var cell = window.innerWidth < 700 ? 0.058 : 0.05, cols, rows;
+    for (;;) {
+      cols = Math.ceil(ex / cell);
+      rows = Math.ceil(EZ / cell);
+      if ((cols + 1) * (rows + 1) <= 64000) break;
+      cell *= 1.08;
+    }
+    var nv = (cols + 1) * (rows + 1);
+    var pos = new Float32Array(nv * 2);
+    var idx = new Uint16Array((cols * (rows + 1) + rows * (cols + 1)) * 2);
+    var k = 0, n = 0, r, c, i;
+    for (r = 0; r <= rows; r++) for (c = 0; c <= cols; c++) { pos[k++] = c / cols; pos[k++] = r / rows; }
+    for (r = 0; r <= rows; r++) for (c = 0; c <= cols; c++) {
+      i = r * (cols + 1) + c;
+      if (c < cols) { idx[n++] = i; idx[n++] = i + 1; }
+      if (r < rows) { idx[n++] = i; idx[n++] = i + cols + 1; }
+    }
+    gl.bindBuffer(gl.ARRAY_BUFFER, vb);
+    gl.bufferData(gl.ARRAY_BUFFER, pos, gl.STATIC_DRAW);
+    gl.enableVertexAttribArray(aG);
+    gl.vertexAttribPointer(aG, 2, gl.FLOAT, false, 0, 0);
+    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ib);
+    gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, idx, gl.STATIC_DRAW);
+    count = idx.length;
+    gl.uniform2f(U.uExt, ex, EZ);
+  }
+
+  function resize() {
+    var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    var w = root.clientWidth || window.innerWidth, h = root.clientHeight || window.innerHeight;
+    cv.width = Math.round(w * dpr);
+    cv.height = Math.round(h * dpr);
+    gl.viewport(0, 0, cv.width, cv.height);
+    asp = w / h;
+    gl.uniform1f(U.uAsp, asp);
+    build();
+  }
+
+  gl.uniform1f(U.uZc, ZC);
+  gl.uniform1f(U.uF, 1.5);
+  gl.uniform1f(U.uCamY, 3.3);
+  gl.uniform1f(U.uAmp, 1.5);
+  gl.enable(gl.BLEND);
+  gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+  gl.clearColor(0, 0, 0, 0);
+
+  var mx = 0, my = 0, tx = 0, ty = 0;
+  window.addEventListener('pointermove', function (e) {
+    tx = e.clientX / window.innerWidth - 0.5;
+    ty = e.clientY / window.innerHeight - 0.5;
+  }, { passive: true });
+
+  function draw(ms) {
+    var t = ms * 0.001;
+    mx += (tx - mx) * 0.04;
+    my += (ty - my) * 0.04;
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.uniform1f(U.uT, t * 0.08 + 13.0);                       /* скорость движения складок */
+    gl.uniform1f(U.uCx, mx * 0.6 + Math.sin(t * 0.07) * 0.25);  /* параллакс камеры */
+    gl.uniform1f(U.uTilt, 0.28 + my * 0.1 + Math.sin(t * 0.05) * 0.03);
+    gl.drawElements(gl.LINES, count, gl.UNSIGNED_SHORT, 0);
+  }
+
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function loop(ms) { draw(ms); requestAnimationFrame(loop); }
+
+  window.addEventListener('resize', function () { resize(); if (still) draw(4000); });
+  resize();
+  if (still) draw(4000); else requestAnimationFrame(loop);
+})();
+</script>
+<!-- ===== DCT WIREFRAME BG: END ===== -->
+
+<!-- ============ STAGE 1 · HERO: fullscreen video + centred logo ============ -->
+<div class="page page--hero is-active" id="page-hero">
+  <h1 class="sr-only">About TOPSCAN</h1>
+  <section class="hero" aria-label="TOPSCAN">
+    <!-- The single shared <video>: plays once here, then flies into #slot-about -->
+    <div class="slot slot--hero" id="slot-hero">
+      <div class="shared" id="shared">
+        <video id="vid" autoplay muted playsinline preload="auto" disablepictureinpicture
+               src="https://raw.githubusercontent.com/Ramashery/Mavic/refs/heads/main/video/A1.mp4"></video>
+      </div>
+    </div>
+    <div class="hero-scrim" data-out="fade"></div>
+    <div class="tracking-area" data-out="fade">
+      <div class="vline" style="left:33.33%;"></div>
+      <div class="vline" style="left:66.66%;"></div>
+      <div class="corner tl"></div>
+      <div class="corner tr"></div>
+      <div class="corner bl"></div>
+      <div class="corner br"></div>
+    </div>
+    <div class="hero-top" data-out="fade">
+      <div class="breadcrumb"><a href="/en">Topscan</a><span class="sep">/</span><span>About</span></div>
+    </div>
+    <div class="hero-center" data-out="rise">
+      <img alt="TOPSCAN" src="https://raw.githubusercontent.com/Ramashery/Mavic/main/images/logo-topscan.png"/>
+    </div>
+    <button class="hero-skip" id="heroSkip" type="button" data-out="fade" aria-label="Skip intro">Scroll</button>
+  </section>
+</div>
+
+<!-- ============ STAGE 2 · ABOUT (same layout as the offer page) ============ -->
+<div class="page page--about" id="page-about">
+
+  <section class="page-header">
+    <div class="wrap">
+      <div class="breadcrumb" id="pageBreadcrumb"><a href="/en">Topscan</a><span class="sep">/</span><span>About</span></div>
+    </div>
+  </section>
+
+  <section id="overview" style="padding-top:8px;">
+    <div class="wrap">
+      <div class="service-overview">
+        <div class="ov-text reveal" data-manual id="ovText">
+          <div class="eyebrow">About us</div>
+          <h1 id="heroTitle">Surveyors, architects and BIM modellers in one team</h1>
+          <p id="heroSub">TOPSCAN captures sites from the air and turns the data into models, maps and drawings that go straight into design and construction. Below are the specialists who work on your project, with their full CVs.</p>
+          <div class="stat-strip">
+            <div class="stat"><b>4</b><span>Specialists</span></div>
+            <div class="stat is-empty"><b>[00]</b><span>[Metric]</span></div>
+            <div class="stat is-empty"><b>[00]</b><span>[Metric]</span></div>
+          </div>
+        </div>
+        <div class="ov-media">
+          <!-- landing slot for the shared video (same box as .service-hero-visual on the offer page) -->
+          <div class="service-hero-visual slot" id="slot-about" data-parallax></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ============ TEAM ============ -->
+<section class="team" id="team">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Team</h2>
+      <p>Every project has a named specialist. Choose a person to jump to their CV.</p>
+    </div>
+    <!-- TEMPLATE: {% for m in team %} -->
+    <nav class="team-index reveal" aria-label="Team members">
+      <a href="#cv-rutmann">George Rutmann</a><span class="sep">/</span>
+      <a href="#cv-2">Team member 2</a><span class="sep">/</span>
+      <a href="#cv-3">Team member 3</a><span class="sep">/</span>
+      <a href="#cv-4">Team member 4</a>
+    </nav>
+
+    <!-- ===================== CV 1 · George Rutmann ===================== -->
+    <article class="cv" id="cv-rutmann" lang="de">
+      <div class="cv-side">
+        <div class="cv-photo-wrap reveal">
+          <div class="cv-photo" data-parallax>
+            <img alt="George Rutmann" loading="lazy" src="https://raw.githubusercontent.com/Ramashery/Mavic/main/images/A2.jpg"/>
+            <div class="scan-line"></div>
+          </div>
+        </div>
+
+        <div class="cv-block reveal">
+          <h4 class="cv-h">Persönliche Daten</h4>
+          <dl class="cv-facts">
+            <div><dt>Anschrift</dt><dd>Gewandhausstraß 2, 01067 Dresden</dd></div>
+            <div><dt>Geburtsdatum</dt><dd>30.11.1964</dd></div>
+            <div><dt>Geburtsort</dt><dd>Rustawi, Georgien</dd></div>
+            <div><dt>Familienstand</dt><dd>verheiratet</dd></div>
+            <div><dt>Staatsangehörigkeit</dt><dd>Georgien</dd></div>
+            <div><dt>Telefon</dt><dd><a href="tel:+493514171880">0351-4171880</a></dd></div>
+            <div><dt>Mobil</dt><dd><a href="tel:+4917696318361">0176-96318361</a></dd></div>
+            <div><dt>E-mail</dt><dd><a href="mailto:rutmann3d@gmail.com">rutmann3d@gmail.com</a></dd></div>
+            <div><dt>Blog</dt><dd><a href="https://rutmann3d.blogspot.de" rel="noopener" target="_blank">rutmann3d.blogspot.de</a></dd></div>
+          </dl>
+        </div>
+
+        <div class="cv-block reveal">
+          <h4 class="cv-h">Sonstiges</h4>
+          <dl class="cv-facts">
+            <div><dt>Führerschein</dt><dd>Klasse B</dd></div>
+            <div><dt>IKT-Kentnisse</dt><dd>AutoCAD, ArchiCAD 24, Revit 2023</dd></div>
+          </dl>
+        </div>
+
+        <div class="cv-block reveal">
+          <h4 class="cv-h">Sprache</h4>
+          <dl class="cv-facts">
+            <div><dt>Russisch</dt><dd>Muttersprache</dd></div>
+            <div><dt>Georgisch</dt><dd>Muttersprache</dd></div>
+            <div><dt>Deutsch</dt><dd>fließend</dd></div>
+            <div><dt>Englisch</dt><dd>gut</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="cv-main">
+        <div class="cv-head reveal">
+          <div class="eyebrow">Lebenslauf</div>
+          <h3>George Rutmann</h3>
+          <p class="cv-role">Bauzeichner, BIM-Modellierer</p>
+        </div>
+
+        <div class="cv-block reveal">
+          <h4 class="cv-h">Berufliche Werdegang</h4>
+          <div class="cv-row"><span class="cv-period">09.2023–</span><div><h5>Bauzeichner, BIM-Modellierer</h5><p>SuP Architekten und Ingenieuren mbH</p></div></div>
+          <div class="cv-row"><span class="cv-period">11/2021–11/2023</span><div><h5>Architekt</h5><p>SGP3 GmbH</p></div></div>
+          <div class="cv-row"><span class="cv-period">03/2021–11/2021</span><div><h5>Bauzeichner, BIM-Modellierer</h5><p>GTU Mobility</p></div></div>
+          <div class="cv-row"><span class="cv-period">07/2020–10/2020</span><div><h5>Architekt</h5><p>Elbcontor CAD GmbH</p></div></div>
+          <div class="cv-row"><span class="cv-period">11/2019–06/2020</span><div><h5>Architekt</h5><p>Linear Architekten</p></div></div>
+          <div class="cv-row"><span class="cv-period">04/2018–10/2019</span><div><h5>Bauzeichner Architektur</h5><p>IGC Cossebaude</p></div></div>
+          <div class="cv-row"><span class="cv-period">05/2012–03/2017</span><div><h5>Selbständiger Übersetzer und Architekt</h5></div></div>
+          <div class="cv-row"><span class="cv-period">01/2008–11/2012</span><div><h5>Geschäftsführer</h5><p>RIAN GmbH</p></div></div>
+          <div class="cv-row"><span class="cv-period">04/2004–06/2007</span><div><h5>Geschäftsführer</h5><p>KR Impex GmbH</p></div></div>
+          <div class="cv-row"><span class="cv-period">01/1998–10/2000</span><div><h5>Yard Supervisor</h5><p>McConnel Dowell LLD.</p></div></div>
+          <div class="cv-row"><span class="cv-period">04/1995–08/1998</span><div><h5>Top-Manager</h5><p>Werbepolygraphie<br/>Vertretung der Herstellerfirma „Inflatable Images Inc.“, Australien</p></div></div>
+          <div class="cv-row"><span class="cv-period">08/1986–10/1992</span><div><h5>Architekt</h5><p>Stadtplanung, Entwurfe von Betriebs- und Wohngebäude<br/>Stadtverwaltung, Rustawi, Georgien</p></div></div>
+        </div>
+
+        <div class="cv-block reveal">
+          <h4 class="cv-h">Berufsbildung</h4>
+          <div class="cv-row"><span class="cv-period">1980–1985</span><div><h5>Qualifikation / Architekt</h5><p>Polytechnisches Institut in Tiflis, Georgien</p></div></div>
+        </div>
+
+        <div class="cv-block reveal">
+          <h4 class="cv-h">Schulbildung</h4>
+          <div class="cv-row"><span class="cv-period">1970–1980</span><div><h5>russische Mittelschule Nr. 12</h5><p>Rustawi, Georgien.</p></div></div>
+        </div>
+
+        <div class="cv-block reveal">
+          <h4 class="cv-h">Weiterbildung</h4>
+          <div class="cv-row"><span class="cv-period">09/2023–11/2023</span><div><h5>AVA-BKI-HOAI_Kostenermittlung, BIM-Revit 2023 Kurse</h5><p>Zertifikat</p></div></div>
+          <div class="cv-row"><span class="cv-period">11/2020–02/2021</span><div><h5>Revit 2020, BIM-Modeller, BIM-Manager Kurse, Dresden</h5><p>Zertifikat</p></div></div>
+          <div class="cv-row"><span class="cv-period">3/2002–11/2002</span><div><h5>AutoCAD-Kurs für Architekten, Dresden.</h5><p>Zeugnis Zertifikat</p></div></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===================== CV 2 · placeholder ===================== -->
+    <article class="cv" id="cv-2" lang="de">
+      <div class="cv-side">
+        <div class="cv-photo-wrap reveal">
+          <div class="cv-photo" data-parallax>
+            <img alt="Team member 2" loading="lazy" src="https://raw.githubusercontent.com/Ramashery/Mavic/main/images/A3.jpg"/>
+            <div class="scan-line"></div>
+          </div>
+        </div>
+        <div class="cv-block reveal">
+          <h4 class="cv-h">Persönliche Daten</h4>
+          <dl class="cv-facts">
+            <div><dt>Telefon</dt><dd class="is-empty">[+995 000 000 000]</dd></div>
+            <div><dt>E-mail</dt><dd class="is-empty">[name@topscan.ge]</dd></div>
+          </dl>
+        </div>
+        <div class="cv-block reveal">
+          <h4 class="cv-h">Sonstiges</h4>
+          <dl class="cv-facts">
+            <div><dt>IKT-Kenntnisse</dt><dd class="is-empty">[Software]</dd></div>
+          </dl>
+        </div>
+        <div class="cv-block reveal">
+          <h4 class="cv-h">Sprache</h4>
+          <dl class="cv-facts">
+            <div><dt>[Sprache]</dt><dd class="is-empty">[Niveau]</dd></div>
+          </dl>
+        </div>
+      </div>
+      <div class="cv-main">
+        <div class="cv-head reveal">
+          <div class="eyebrow">Lebenslauf</div>
+          <h3>Team member 2</h3>
+          <p class="cv-role">[Position]</p>
+        </div>
+        <div class="cv-block reveal">
+          <h4 class="cv-h">Berufliche Werdegang</h4>
+          <div class="cv-row"><span class="cv-period">[MM.YYYY–]</span><div><h5>[Position]</h5><p>[Firma]</p></div></div>
+          <div class="cv-row"><span class="cv-period">[MM.YYYY–MM.YYYY]</span><div><h5>[Position]</h5><p>[Firma]</p></div></div>
+          <div class="cv-row"><span class="cv-period">[MM.YYYY–MM.YYYY]</span><div><h5>[Position]</h5><p>[Firma]</p></div></div>
+        </div>
+        <div class="cv-block reveal">
+          <h4 class="cv-h">Berufsbildung</h4>
+          <div class="cv-row"><span class="cv-period">[YYYY–YYYY]</span><div><h5>[Qualifikation]</h5><p>[Institution]</p></div></div>
+        </div>
+        <div class="cv-block reveal">
+          <h4 class="cv-h">Weiterbildung</h4>
+          <div class="cv-row"><span class="cv-period">[MM.YYYY–MM.YYYY]</span><div><h5>[Kurs]</h5><p>[Zertifikat]</p></div></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===================== CV 3 · placeholder ===================== -->
+    <article class="cv" id="cv-3" lang="de">
+      <div class="cv-side">
+        <div class="cv-photo-wrap reveal">
+          <div class="cv-photo" data-parallax>
+            <img alt="Team member 3" loading="lazy" src="https://raw.githubusercontent.com/Ramashery/Mavic/main/images/A4.jpg"/>
+            <div class="scan-line"></div>
+          </div>
+        </div>
+        <div class="cv-block reveal">
+          <h4 class="cv-h">Persönliche Daten</h4>
+          <dl class="cv-facts">
+            <div><dt>Telefon</dt><dd class="is-empty">[+995 000 000 000]</dd></div>
+            <div><dt>E-mail</dt><dd class="is-empty">[name@topscan.ge]</dd></div>
+          </dl>
+        </div>
+        <div class="cv-block reveal">
+          <h4 class="cv-h">Sonstiges</h4>
+          <dl class="cv-facts">
+            <div><dt>IKT-Kenntnisse</dt><dd class="is-empty">[Software]</dd></div>
+          </dl>
+        </div>
+        <div class="cv-block reveal">
+          <h4 class="cv-h">Sprache</h4>
+          <dl class="cv-facts">
+            <div><dt>[Sprache]</dt><dd class="is-empty">[Niveau]</dd></div>
+          </dl>
+        </div>
+      </div>
+      <div class="cv-main">
+        <div class="cv-head reveal">
+          <div class="eyebrow">Lebenslauf</div>
+          <h3>Team member 3</h3>
+          <p class="cv-role">[Position]</p>
+        </div>
+        <div class="cv-block reveal">
+          <h4 class="cv-h">Berufliche Werdegang</h4>
+          <div class="cv-row"><span class="cv-period">[MM.YYYY–]</span><div><h5>[Position]</h5><p>[Firma]</p></div></div>
+          <div class="cv-row"><span class="cv-period">[MM.YYYY–MM.YYYY]</span><div><h5>[Position]</h5><p>[Firma]</p></div></div>
+          <div class="cv-row"><span class="cv-period">[MM.YYYY–MM.YYYY]</span><div><h5>[Position]</h5><p>[Firma]</p></div></div>
+        </div>
+        <div class="cv-block reveal">
+          <h4 class="cv-h">Berufsbildung</h4>
+          <div class="cv-row"><span class="cv-period">[YYYY–YYYY]</span><div><h5>[Qualifikation]</h5><p>[Institution]</p></div></div>
+        </div>
+        <div class="cv-block reveal">
+          <h4 class="cv-h">Weiterbildung</h4>
+          <div class="cv-row"><span class="cv-period">[MM.YYYY–MM.YYYY]</span><div><h5>[Kurs]</h5><p>[Zertifikat]</p></div></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===================== CV 4 · placeholder ===================== -->
+    <article class="cv" id="cv-4" lang="de">
+      <div class="cv-side">
+        <div class="cv-photo-wrap reveal">
+          <div class="cv-photo" data-parallax>
+            <img alt="Team member 4" loading="lazy" src="https://raw.githubusercontent.com/Ramashery/Mavic/main/images/A5.jpg"/>
+            <div class="scan-line"></div>
+          </div>
+        </div>
+        <div class="cv-block reveal">
+          <h4 class="cv-h">Persönliche Daten</h4>
+          <dl class="cv-facts">
+            <div><dt>Telefon</dt><dd class="is-empty">[+995 000 000 000]</dd></div>
+            <div><dt>E-mail</dt><dd class="is-empty">[name@topscan.ge]</dd></div>
+          </dl>
+        </div>
+        <div class="cv-block reveal">
+          <h4 class="cv-h">Sonstiges</h4>
+          <dl class="cv-facts">
+            <div><dt>IKT-Kenntnisse</dt><dd class="is-empty">[Software]</dd></div>
+          </dl>
+        </div>
+        <div class="cv-block reveal">
+          <h4 class="cv-h">Sprache</h4>
+          <dl class="cv-facts">
+            <div><dt>[Sprache]</dt><dd class="is-empty">[Niveau]</dd></div>
+          </dl>
+        </div>
+      </div>
+      <div class="cv-main">
+        <div class="cv-head reveal">
+          <div class="eyebrow">Lebenslauf</div>
+          <h3>Team member 4</h3>
+          <p class="cv-role">[Position]</p>
+        </div>
+        <div class="cv-block reveal">
+          <h4 class="cv-h">Berufliche Werdegang</h4>
+          <div class="cv-row"><span class="cv-period">[MM.YYYY–]</span><div><h5>[Position]</h5><p>[Firma]</p></div></div>
+          <div class="cv-row"><span class="cv-period">[MM.YYYY–MM.YYYY]</span><div><h5>[Position]</h5><p>[Firma]</p></div></div>
+          <div class="cv-row"><span class="cv-period">[MM.YYYY–MM.YYYY]</span><div><h5>[Position]</h5><p>[Firma]</p></div></div>
+        </div>
+        <div class="cv-block reveal">
+          <h4 class="cv-h">Berufsbildung</h4>
+          <div class="cv-row"><span class="cv-period">[YYYY–YYYY]</span><div><h5>[Qualifikation]</h5><p>[Institution]</p></div></div>
+        </div>
+        <div class="cv-block reveal">
+          <h4 class="cv-h">Weiterbildung</h4>
+          <div class="cv-row"><span class="cv-period">[MM.YYYY–MM.YYYY]</span><div><h5>[Kurs]</h5><p>[Zertifikat]</p></div></div>
+        </div>
+      </div>
+    </article>
+    <!-- TEMPLATE: {% endfor %} -->
+  </div>
+</section>
+
+<!-- ============ LEAD FORM (partial: _lead_form.html) ============ -->
+<section class="lead-section" id="lead" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="lead-layout">
+      <div class="lead-copy reveal">
+        <div class="eyebrow">Contact</div>
+        <h2>Discuss your project with the team</h2>
+        <p>Describe the site and the result you need. The specialist who fits the task will reply.</p>
+        <ul class="lead-list">
+          <li>Reply within one business day</li>
+          <li>Clear scope before any work starts</li>
+          <li>Deliverables in the formats you already use</li>
+        </ul>
+      </div>
+      <form class="reveal" id="leadForm">
+        <input name="access_key" type="hidden" value="YOUR_WEB3FORMS_ACCESS_KEY"/>
+        <input name="subject" type="hidden" value="New request from TOPSCAN website — About us"/>
+        <input name="from_name" type="hidden" value="TOPSCAN — Website"/>
+        <input autocomplete="off" name="botcheck" style="display:none" tabindex="-1" type="text"/>
+        <div class="field-row">
+          <div class="field"><label for="name">Name</label><input id="name" name="Name" placeholder="Your name" required type="text"/></div>
+          <div class="field"><label for="phone">Phone</label><input id="phone" name="Phone" placeholder="+995 5__ ___ ___" required type="tel"/></div>
+        </div>
+        <div class="field"><label for="email">Email</label><input id="email" name="Email" placeholder="you@example.com" required type="email"/></div>
+        <div class="field"><label for="site">Site and task</label><input id="site" name="Object_and_task" placeholder="Where the site is and what you need" type="text"/></div>
+        <div class="field"><label for="comment">Comment</label><textarea id="comment" name="Comment" placeholder="Anything else we should know" rows="3"></textarea></div>
+        <button class="btn submit-btn" type="submit">Send request</button>
+        <p class="form-status" id="leadFormStatus"></p>
+        <p class="form-note"><span>By sending this form you agree to our </span><a href="/en/privacy">privacy policy</a></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER (partial: _footer.html) ============ -->
+<footer>
+  <div class="footer-media">
+    <!-- TODO: replace with SITE.footerVideo -->
+    <video autoplay loop muted playsinline preload="none" src="https://raw.githubusercontent.com/Ramashery/Mavic/refs/heads/main/video/A1.mp4"></video>
+  </div>
+  <div class="footer-seam" aria-hidden="true"></div>
+  <div class="footer-scrim"></div>
+  <div class="footer-grain"></div>
+  <div class="wrap">
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>Menu</h5>
+        <a href="/en">Home</a>
+        <a href="/en/services">Services</a>
+        <a href="/en/works">Works</a>
+        <a href="/en/blog">Blog</a>
+        <a href="/en/about">About</a>
+      </div>
+      <div class="footer-col footer-contacts">
+        <h5>Contact</h5>
+        <a href="tel:+995000000000">+995 000 000 000</a>
+        <a href="mailto:info@topscan.ge">info@topscan.ge</a>
+        <a href="#" rel="noopener" target="_blank">WhatsApp</a>
+        <a href="#" rel="noopener" target="_blank">Telegram</a>
+      </div>
+      <div class="footer-col">
+        <h5>Legal / Imprint</h5>
+        <p>[Legal entity line]</p>
+        <p>[Tax ID line]</p>
+      </div>
+      <div class="footer-col">
+        <h5>Social</h5>
+        <div class="social-row">
+          <a href="#">FB</a>
+          <a href="#">IG</a>
+          <a href="#">IN</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TOPSCAN. All rights reserved.</span>
+      <span class="dji-credit">Media materials provided by DJI Enterprise</span>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /#page-about -->
+
+<script>
+(function () {
+  'use strict';
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var root = document.documentElement;
+  var reduceMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+  var pageHero = $('#page-hero'), pageAbout = $('#page-about');
+  var shared = $('#shared'), vid = $('#vid');
+  var slotAbout = $('#slot-about');
+  var heroSkip = $('#heroSkip');
+  var stage = 'hero';       // 'hero' | 'about'
+  var busy = false;         // true while the video is flying
+
+  /* parallax constants (shared by the media windows and the landing flight) */
+  var STRENGTH = 60, SCALE = 1.12;
+
+  /* ---------- Body scroll lock (mobile drawer) ---------- */
+  function lockBodyScroll() {
+    if (document.body.classList.contains('nav-locked')) return;
+    var y = window.scrollY || window.pageYOffset || 0;
+    document.body.dataset.scrollLockY = String(y);
+    document.body.style.top = (-y) + 'px';
+    document.body.classList.add('nav-locked');
+  }
+  function unlockBodyScroll() {
+    if (!document.body.classList.contains('nav-locked')) return;
+    var y = parseInt(document.body.dataset.scrollLockY || '0', 10);
+    document.body.classList.remove('nav-locked');
+    document.body.style.top = '';
+    delete document.body.dataset.scrollLockY;
+    window.scrollTo({ top: y, left: 0, behavior: 'instant' });
+  }
+
+  /* ---------- Text engines (same as main.js) ---------- */
+  var EB_DIRS = [ {x:-120,y:0}, {x:120,y:0}, {x:0,y:-90}, {x:0,y:90}, {x:-100,y:-60}, {x:100,y:60} ];
+  function edgeSplit(el) {
+    el.innerHTML = el.textContent.split(' ').map(function (word) {
+      var w = '';
+      for (var i = 0; i < word.length; i++) w += '<span data-eb>' + word.charAt(i) + '</span>';
+      return '<span class="eb-word">' + w + '</span>';
+    }).join(' ');
+    return Array.prototype.slice.call(el.querySelectorAll('[data-eb]'));
+  }
+  function prepareEdgeBurst(spans, stagger) {
+    spans.forEach(function (span, i) {
+      var d = EB_DIRS[i % EB_DIRS.length];
+      span.style.setProperty('--ex', (d.x + (Math.random() * 40 - 20)).toFixed(0) + 'px');
+      span.style.setProperty('--ey', (d.y + (Math.random() * 30 - 15)).toFixed(0) + 'px');
+      span.style.animationDelay = (i * stagger) + 'ms';
+    });
+  }
+  function edgeSplitWords(el) {
+    el.innerHTML = el.textContent.split(' ').map(function (w) {
+      return '<span data-eb style="display:inline-block;">' + w + '</span>';
+    }).join(' ');
+    return Array.prototype.slice.call(el.querySelectorAll('[data-eb]'));
+  }
+  function prepareEdgeBurstRandom(spans, maxDelay) {
+    spans.forEach(function (span) {
+      var d = EB_DIRS[Math.floor(Math.random() * EB_DIRS.length)];
+      span.style.setProperty('--ex', (d.x + (Math.random() * 40 - 20)).toFixed(0) + 'px');
+      span.style.setProperty('--ey', (d.y + (Math.random() * 30 - 15)).toFixed(0) + 'px');
+      span.style.animationDelay = (Math.random() * maxDelay).toFixed(0) + 'ms';
+    });
+  }
+  function zipSplit(el, segmentSelector) {
+    var lines = el.querySelectorAll(segmentSelector || '.hero-line');
+    var source = lines.length ? Array.prototype.slice.call(lines) : [el];
+    var counter = 0;
+    source.forEach(function (line) {
+      line.innerHTML = line.textContent.split(' ').map(function (word) {
+        var w = '';
+        for (var i = 0; i < word.length; i++) { w += '<span data-zip style="--zi:' + counter + '">' + word.charAt(i) + '</span>'; counter++; }
+        return '<span class="zip-word">' + w + '</span>';
+      }).join(' ');
+    });
+    el.setAttribute('data-zip-ready', '1');
+    return counter;
+  }
+  function playZip(el)  { el.classList.remove('zip-play'); void el.offsetWidth; el.classList.add('zip-play'); }
+  function resetZip(el) { el.classList.remove('zip-play'); }
+  function playBurst(el){ el.classList.remove('eb-play'); void el.offsetWidth; el.classList.add('eb-play'); }
+  function resetBurst(el){ el.classList.remove('eb-play'); }
+
+  /* ---------- About-page text: breadcrumb -> title -> subtitle (offer-page sequence) ---------- */
+  var heroTitle = $('#heroTitle'), heroSub = $('#heroSub'), pageBreadcrumb = $('#pageBreadcrumb');
+  var ovText = $('#ovText');
+  var titleDuration = 850, heroTimers = [];
+
+  if (!reduceMotion) {
+    if (pageBreadcrumb) {
+      Array.prototype.slice.call(pageBreadcrumb.children).forEach(function (ch) { ch.classList.add('zip-segment'); });
+      zipSplit(pageBreadcrumb, '.zip-segment');
+    }
+    if (heroTitle) { titleDuration = zipSplit(heroTitle) * 22 + 700 + 150; }
+    if (heroSub)   { prepareEdgeBurstRandom(edgeSplitWords(heroSub), 220); }
+  }
+  function playAboutText() {
+    ovText.classList.add('is-visible');
+    if (reduceMotion) return;
+    heroTimers.forEach(clearTimeout); heroTimers = [];
+    if (pageBreadcrumb) playZip(pageBreadcrumb);
+    if (heroTitle) playZip(heroTitle);
+    if (heroSub) { resetBurst(heroSub); heroTimers.push(setTimeout(function () { playBurst(heroSub); }, titleDuration)); }
+  }
+
+  /* ---------- Zipper on every h2 / h3 (replays on viewport entry) ---------- */
+  if (!reduceMotion) {
+    var headings = Array.prototype.slice.call(document.querySelectorAll('h2, h3'));
+    headings.forEach(function (h) { h.setAttribute('aria-label', h.textContent); zipSplit(h); });
+    if ('IntersectionObserver' in window) {
+      var headingIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) { entry.isIntersecting ? playZip(entry.target) : resetZip(entry.target); });
+      }, { threshold: 0.3 });
+      headings.forEach(function (h) { headingIO.observe(h); });
+    } else {
+      headings.forEach(function (h) { h.classList.add('zip-play'); });
+    }
+  }
+
+  /* ---------- Mobile nav drawer ---------- */
+  var menuToggle = $('#menuToggle'), navDrawer = $('#navDrawer'), navOverlay = $('#navOverlay'), navDrawerClose = $('#navDrawerClose');
+  var navDrawerVideo = navDrawer ? $('.nav-drawer-media video', navDrawer) : null;
+  var navLinksList = navDrawer ? $('.nav-drawer-links', navDrawer) : null;
+  if (navLinksList && !reduceMotion) {
+    var menuSpans = [];
+    Array.prototype.slice.call(navLinksList.querySelectorAll('a')).forEach(function (a) {
+      a.setAttribute('aria-label', a.textContent);
+      menuSpans = menuSpans.concat(edgeSplit(a));
+    });
+    prepareEdgeBurst(menuSpans, 26);
+  }
+  function openDrawer() {
+    navDrawer.classList.add('is-open'); navOverlay.classList.add('is-open'); menuToggle.classList.add('is-open');
+    menuToggle.setAttribute('aria-expanded', 'true');
+    lockBodyScroll();
+    if (navDrawerVideo && navDrawerVideo.preload === 'none') navDrawerVideo.preload = 'auto';
+    if (navDrawerVideo && navDrawerVideo.paused) navDrawerVideo.play().catch(function () {});
+    if (!reduceMotion && navLinksList) { navLinksList.classList.remove('eb-play'); void navLinksList.offsetWidth; navLinksList.classList.add('eb-play'); }
+  }
+  function closeDrawer() {
+    navDrawer.classList.remove('is-open'); navOverlay.classList.remove('is-open'); menuToggle.classList.remove('is-open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    unlockBodyScroll();
+    if (navLinksList) navLinksList.classList.remove('eb-play');
+  }
+  if (menuToggle && navDrawer && navOverlay) {
+    menuToggle.addEventListener('click', function () { navDrawer.classList.contains('is-open') ? closeDrawer() : openDrawer(); });
+    navOverlay.addEventListener('click', closeDrawer);
+    if (navDrawerClose) navDrawerClose.addEventListener('click', closeDrawer);
+    navDrawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeDrawer); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDrawer(); });
+  }
+
+  /* ---------- Scroll reveal (manual items are driven by the transition) ---------- */
+  var reveals = document.querySelectorAll('.reveal:not([data-manual])');
+  if ('IntersectionObserver' in window) {
+    var revealIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); revealIO.unobserve(entry.target); }
+      });
+    }, { threshold: 0.08 });   /* low threshold: CV blocks are tall */
+    reveals.forEach(function (el) { revealIO.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  /* ---------- Lead form (Web3Forms) ---------- */
+  var leadForm = $('#leadForm');
+  if (leadForm) {
+    var leadStatus = $('#leadFormStatus'), leadSubmitBtn = $('.submit-btn', leadForm);
+    var msg = {
+      sending: 'Sending…',
+      ok: 'Thank you! Your request has been sent, we will reply within one business day.',
+      err: 'Something went wrong. Please try again or email info@topscan.ge'
+    };
+    leadForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      leadStatus.className = 'form-status';
+      leadStatus.textContent = msg.sending;
+      leadStatus.style.display = 'block';
+      leadStatus.style.color = 'var(--text-dim)';
+      if (leadSubmitBtn) leadSubmitBtn.disabled = true;
+      fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(leadForm) })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          leadStatus.className = 'form-status ' + (data.success ? 'ok' : 'err');
+          leadStatus.textContent = data.success ? msg.ok : msg.err;
+          if (data.success) leadForm.reset();
+        })
+        .catch(function () { leadStatus.className = 'form-status err'; leadStatus.textContent = msg.err; })
+        .finally(function () { if (leadSubmitBtn) leadSubmitBtn.disabled = false; });
+    });
+  }
+
+  /* ---------- Background slides away as the footer approaches ---------- */
+  var siteBg = $('.dct-bg'), pageFooter = $('footer');
+  var lastOffset = -1, bgTicking = false;
+  function updateBgOffset() {
+    bgTicking = false;
+    if (!siteBg || !pageFooter) return;
+    var vh = window.innerHeight, offset = 0;
+    if (pageFooter.offsetHeight) {                       /* footer is hidden during the hero stage */
+      offset = Math.max(0, Math.min(vh, vh - pageFooter.getBoundingClientRect().top));
+    }
+    if (offset !== lastOffset) { siteBg.style.transform = offset ? 'translateY(-' + offset + 'px)' : ''; lastOffset = offset; }
+  }
+  function onScrollOrResize() { if (!bgTicking) { bgTicking = true; window.requestAnimationFrame(updateBgOffset); } }
+  window.addEventListener('scroll', onScrollOrResize, { passive: true });
+  window.addEventListener('resize', onScrollOrResize);
+
+  /* ---------- Media-window parallax ([data-parallax]); media is looked up lazily
+                  because the video window receives its <video> only after the flight ---------- */
+  (function () {
+    if (reduceMotion) return;
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
+    if (!boxes.length) return;
+    var items = boxes.map(function (box) { return { box: box, media: null }; });
+    function findMedia(it) {
+      var m = it.box.querySelector(':scope > .slideshow, :scope > .terrain-video-wrap') || it.box.querySelector('video, img');
+      if (m) m.style.willChange = 'transform';
+      return m;
+    }
+    var visible = [], raf = null;
+    function tick() {
+      var vh = window.innerHeight;
+      visible.forEach(function (it) {
+        if (!it.media) it.media = findMedia(it);
+        if (!it.media) return;
+        var rect = it.box.getBoundingClientRect();
+        var offset = (rect.top + rect.height / 2 - vh / 2) / vh;
+        it.media.style.transform = 'translateY(' + (-offset * STRENGTH).toFixed(2) + 'px) scale(' + SCALE + ')';
+      });
+      raf = visible.length ? requestAnimationFrame(tick) : null;
+    }
+    function ensureLoop() { if (visible.length && raf === null) raf = requestAnimationFrame(tick); }
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          var it = items.filter(function (i) { return i.box === entry.target; })[0];
+          if (!it) return;
+          var idx = visible.indexOf(it);
+          if (entry.isIntersecting && idx === -1) visible.push(it);
+          else if (!entry.isIntersecting && idx !== -1) visible.splice(idx, 1);
+        });
+        ensureLoop();
+      }, { rootMargin: '20% 0px' });
+      items.forEach(function (it) { io.observe(it.box); });
+    } else { visible = items.slice(); ensureLoop(); }
+    window.addEventListener('resize', ensureLoop);
+  })();
+
+  /* =====================================================================
+     SHARED-ELEMENT TRANSITION (mechanics from shared-video-transition-1)
+       1. hero video plays once -> 'ended'
+       2. lift(): the video wrapper goes position:fixed exactly over the hero
+       3. hero overlay (logo, breadcrumb, scrim, corners) fades out
+       4. swap(): hero page hidden, about page shown underneath the video
+       5. the wrapper animates left/top/width/height to #slot-about
+          (the <video> also eases into the parallax scale/offset, so there is
+          no jump when the parallax loop takes over)
+       6. land(): wrapper drops into the slot; same <video>, playback continues
+     ===================================================================== */
+  var EASE = 'cubic-bezier(.76, 0, .24, 1)';
+  var EASE_IN = 'cubic-bezier(.5, 0, .75, 0)';
+  var flightMs = function () { return innerWidth >= 1000 ? 1200 : 1000; };
+  var px = function (n) { return n + 'px'; };
+  var wait = function (ms) { return new Promise(function (r) { setTimeout(r, ms); }); };
+  var heroItems = Array.prototype.slice.call(pageHero.querySelectorAll('[data-out]'));
+
+  function moveNode(node, parent) {
+    var moved = false;
+    if (typeof parent.moveBefore === 'function') { try { parent.moveBefore(node, null); moved = true; } catch (_) {} }
+    if (!moved) parent.appendChild(node);
+    setTimeout(function () { if (vid.paused && !vid.ended) vid.play().catch(function () {}); }, 0);
+  }
+  function animOut() {
+    return Promise.all(heroItems.map(function (el, i) {
+      var rise = el.dataset.out === 'rise';
+      return el.animate(
+        rise ? [{ opacity: 1, transform: 'translateY(0)' }, { opacity: 0, transform: 'translateY(-10px)' }]
+             : [{ opacity: 1 }, { opacity: 0 }],
+        { duration: 340, delay: Math.min(i, 6) * 28, easing: EASE_IN, fill: 'forwards' }
+      ).finished.catch(function () {});
+    }));
+  }
+  function lift() {
+    var rect = shared.getBoundingClientRect();
+    moveNode(shared, document.body);
+    Object.assign(shared.style, {
+      position: 'fixed', inset: 'auto',
+      left: px(rect.left), top: px(rect.top), width: px(rect.width), height: px(rect.height),
+      zIndex: 2, pointerEvents: 'none'
+    });
+    return rect;
+  }
+  function land() {
+    moveNode(shared, slotAbout);
+    shared.getAnimations().forEach(function (a) { a.cancel(); });
+    shared.removeAttribute('style');
+    pageAbout.classList.add('is-landed');
+  }
+  function swap() {
+    heroItems.forEach(function (el) { el.getAnimations().forEach(function (a) { a.cancel(); }); });
+    pageHero.classList.remove('is-active');
+    pageAbout.classList.add('is-active');
+    stage = 'about';
+    window.scrollTo(0, 0);
+    updateBgOffset();
+  }
+  function startLoop() {
+    vid.loop = true;
+    try { vid.currentTime = 0; } catch (_) {}
+    vid.play().catch(function () {});
+  }
+  function parallaxEnd(rect) {
+    var off = (rect.top + rect.height / 2 - innerHeight / 2) / innerHeight;
+    return 'translateY(' + (-off * STRENGTH).toFixed(2) + 'px) scale(' + SCALE + ')';
+  }
+
+  async function goAbout() {
+    if (busy || stage !== 'hero') return;
+    busy = true;
+    try {
+      if (reduceMotion) { swap(); land(); startLoop(); playAboutText(); return; }
+
+      var first = lift();
+      await animOut();
+      swap();
+      var last = slotAbout.getBoundingClientRect();
+      var dur = flightMs();
+      var endT = parallaxEnd(last);
+
+      startLoop();
+      var flight = shared.animate([
+        { left: px(first.left), top: px(first.top), width: px(first.width), height: px(first.height) },
+        { left: px(last.left),  top: px(last.top),  width: px(last.width),  height: px(last.height) }
+      ], { duration: dur, easing: EASE, fill: 'both' });
+      var vFlight = vid.animate([
+        { transform: 'translateY(0px) scale(1)' }, { transform: endT }
+      ], { duration: dur, easing: EASE, fill: 'both' });
+
+      setTimeout(playAboutText, dur * 0.5);      /* text enters at mid-flight */
+      await flight.finished;
+
+      vid.style.transform = endT;                /* hand over to the parallax loop */
+      vFlight.cancel();
+      land();
+    } catch (err) {
+      console.error(err);
+      if (stage !== 'about') swap();
+      land(); startLoop(); playAboutText();
+    } finally {
+      busy = false;
+    }
+  }
+
+  /* hero -> about triggers: video finished, or the visitor asks to move on */
+  vid.addEventListener('ended', goAbout);
+  vid.addEventListener('error', goAbout);
+  heroSkip.addEventListener('click', goAbout);
+  window.addEventListener('wheel', function (e) { if (stage === 'hero' && e.deltaY > 4) goAbout(); }, { passive: true });
+  var touchY0 = null;
+  window.addEventListener('touchstart', function (e) { touchY0 = e.touches.length ? e.touches[0].clientY : null; }, { passive: true });
+  window.addEventListener('touchmove', function (e) {
+    if (busy) { e.preventDefault(); return; }
+    if (stage === 'hero' && touchY0 !== null && e.touches.length && touchY0 - e.touches[0].clientY > 28) { touchY0 = null; goAbout(); }
+  }, { passive: false });
+  window.addEventListener('keydown', function (e) {
+    if (stage === 'hero' && (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === 'End')) { e.preventDefault(); goAbout(); }
+    else if (busy && (e.key === ' ' || e.key.indexOf('Arrow') === 0 || e.key.indexOf('Page') === 0)) e.preventDefault();
+  });
+  window.addEventListener('scroll', function () { if (busy && window.scrollY > 0) window.scrollTo(0, 0); }, { passive: true });
+  /* autoplay blocked (e.g. low-power mode): first touch starts the video */
+  window.addEventListener('pointerdown', function () { if (stage === 'hero' && vid.paused && !vid.ended) vid.play().catch(function () {}); }, { passive: true });
+  vid.play().catch(function () {});
+
+  /* start state */
+  var hashTarget = null;
+  try { hashTarget = location.hash.length > 1 ? document.querySelector(location.hash) : null; } catch (_) {}
+  if (reduceMotion || location.hash.length > 1) {
+    /* deep link (#cv-2 …) or reduced motion: skip the intro */
+    swap(); land(); startLoop(); playAboutText();
+    if (hashTarget) setTimeout(function () { hashTarget.scrollIntoView(); }, 0);
+  }
+
+  /* ---------- Smooth (weighted) wheel scroll ---------- */
+  (function () {
+    if (reduceMotion) return;
+    var LERP = 0.09, RESYNC_PX = 2;
+    var target = window.scrollY || 0, current = target, raf = null;
+    function maxScroll() { return Math.max(0, document.documentElement.scrollHeight - window.innerHeight); }
+    function tick() {
+      var diff = target - current;
+      if (Math.abs(diff) < 0.5) { current = target; window.scrollTo({ top: current, left: 0, behavior: 'instant' }); raf = null; return; }
+      current += diff * LERP;
+      window.scrollTo({ top: current, left: 0, behavior: 'instant' });
+      raf = requestAnimationFrame(tick);
+    }
+    window.addEventListener('wheel', function (e) {
+      if (busy) { e.preventDefault(); return; }
+      if (stage !== 'about') return;
+      if (e.target.closest && e.target.closest('.nav-drawer')) return;
+      var liveY = window.scrollY || 0;
+      if (raf === null || Math.abs(liveY - current) > RESYNC_PX) { current = liveY; target = liveY; }
+      var delta = e.deltaY;
+      if (e.deltaMode === 1) delta *= 16; else if (e.deltaMode === 2) delta *= window.innerHeight;
+      target = Math.max(0, Math.min(maxScroll(), target + delta));
+      e.preventDefault();
+      if (raf === null) raf = requestAnimationFrame(tick);
+    }, { passive: false });
+    window.addEventListener('resize', function () { target = Math.min(target, maxScroll()); });
+  })();
+})();
+</script>
+</body>
+</html>
